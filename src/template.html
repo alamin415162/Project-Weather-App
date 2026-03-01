@@ -1,20 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Page</title>
+    <title>Weather App</title>
 </head>
+
 <body>
-    <header>
-        <nav id="head">
-            <button id="home">Home</button>
-            <button id="menu">Menu</button>
-            <button id="about">About</button>
-        </nav>
-    </header>
-    <div id="content">
+    <style>
+        h1,
+        form,
+        div {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+
+        #data {
+            border: 1px solid rgba(14, 13, 13, 0.733);
+            width: 70vw;
+            height: 70vh;
+            background-color: aquamarine;
+            text-align: center;
+            margin: auto;
+            border-radius: 20px;
+
+        }
+        input{
+            margin-left: 20px;
+        }
+        button{
+            margin-left: 10px;
+        }
+    </style>
+    <div id="container">
+        <h1 id="heading">Building A Weather App</h1>
+
+        <form action="#" id="myForm">
+            <label>Enter Region<input type="text" id="myInput"></label>
+
+            <button id="btn" type="submit">Weather</button>
+        </form>
+        <div id="data">
         
+        </div>
     </div>
+    <script src="index.js"></script>
 </body>
+
 </html>

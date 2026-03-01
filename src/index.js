@@ -1,42 +1,38 @@
-import "./styles.css";
+//import "./style.css"
 
-// import homeImage from './home.jpg'
-// import menuImage from './ktfo.jpeg'
-// import menuImage2 from './tbs.jpg'
 
-import { Hello1 , renderHome, imageHome} from "./home.js";
-import { Hello2 , renderMenu, image1,image2} from "./menu.js";
-import { Hello3 , renderAbout} from "./about.js";
 
-console.log('my Restaurant')
+async function currentWeather(region) {
+    try {
+        const value = document.getElementById('myInput').value.trim()
+        let response = await new Promise((resolve) => resolve('success'))
+        if(!response) throw new Error('Error Happened')
+        let weatherData = await response
+        Display(value)
+        return weatherData
 
-console.log(Hello1)
-console.log(Hello2)
-console.log(Hello3)
 
-const home = document.getElementById('home')
-const menu = document.getElementById('menu')
-const about = document.getElementById('about')
+    }catch(err){
+        console.log(`error occured : ${err.message}`)
 
-renderHome()
-home.addEventListener('click', () =>{
-    const indexContent = document.getElementById('content')
-    indexContent.innerHTML = '';
-    renderHome()
+    }finally{
+        console.log('an attempted is made')
+    }
+    
+}
 
-})
-menu.addEventListener('click', ()=>{
-  
-    const indexContent = document.getElementById('content')
-    indexContent.innerHTML = '';
-    renderMenu()
+function Display(region){
+    const div = document.getElementById('data')
+    div.textContent = ''
+    if(region.length <= 3){
+        div.textContent = `Local Weather`
+    }else{
+        div.textContent = `${region}'s Weather`
+    }
+    document.getElementById('myInput').value = ''
+}
+//Display('Addis Ababa')
 
-})
-about.addEventListener('click', ()=>{
-   
-    const indexContent = document.getElementById('content')
-    indexContent.innerHTML = '';
-    renderAbout()
+const myForm = document.getElementById('myForm');
 
-})
-
+myForm.addEventListener("submit", currentWeather)
